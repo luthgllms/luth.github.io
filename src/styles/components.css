@@ -16,7 +16,8 @@
     @apply 
       flex 
       items-center 
-      space-x-2;
+      space-x-2 
+      relative;
   }
   
   .menu-icon {
@@ -78,9 +79,48 @@
       h-5 
       cursor-pointer 
       hover:scale-110 
-      transition;
+      transition 
+      transform 
+      duration-200;
   }
   
-/* footer */
+  /* dropdown menu */
+  .dropdown-menu {
+    @apply 
+      absolute 
+      top-12 
+      left-0 
+      bg-white 
+      dark:bg-gray-800 
+      text-sm 
+      rounded 
+      shadow-lg 
+      p-6 
+      z-40;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    gap: 2rem;
+  }
+  
+  .dropdown-title {
+    @apply 
+      font-semibold 
+      mb-2 
+      text-gray-700 
+      dark:text-gray-300;
+  }
+  
+  .dropdown-menu ul {
+    @apply 
+      space-y-1;
+  }
+  
+  .dropdown-menu li {
+    @apply 
+      cursor-pointer 
+      hover:underline 
+      text-gray-600 
+      dark:text-gray-300;
+  }
   
   
