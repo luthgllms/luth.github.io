@@ -1,10 +1,22 @@
 import '../styles/components.css';
-import { useState } from 'react';
-import { AlignJustify } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { AlignJustify, Sun, Moon } from 'lucide-react';
 
 export default function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(() =>
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+  );
 
+  // Apply dark class to <html> tag
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [darkMode]);
+  
   return (
     <header className="header">
       {/* left side: icon + site name */}
@@ -29,8 +41,17 @@ export default function Header() {
           </span>
         )}
         <a href="/archive" className="archive-link">
-          Archive
+            Miscellaneous
         </a>
+
+        <button onClick={() => setDarkMode(!darkMode)}>
+          {darkMode ? (
+            <Sun className="toggle-icon text-yellow-500" />
+          ) : (
+            <Moon className="toggle-icon text-gray-700" />
+          )}
+        </button>
+
       </div>
     </header>
   );

@@ -2,7 +2,8 @@ import Header from './components/Header';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white text-black">
+    // <div className="min-h-screen bg-white text-black">
+    <div className="min-h-screen transition bg-white text-black dark:bg-gray-900 dark:text-white">
       <Header />
       <main className="p-4">
         <p>What is Lorem Ipsum?
